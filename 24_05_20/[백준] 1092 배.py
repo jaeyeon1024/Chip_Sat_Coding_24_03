@@ -8,23 +8,17 @@ crains = list(map(int, input().split()))
 m = int(input().strip())
 boxs = list(map(int, input().split()))
 
-time = 0
-
 crains.sort()
 boxs.sort(reverse=True)
 
 crains_tmp = [[0] for _ in range(n)]
 
-max_height = 0
-
 for box in boxs:
     for idx, crain in enumerate(crains):
         if box <= crain:
-
             if len(crains_tmp[idx]) > len(min(crains_tmp[idx:], key=lambda x: len(x))):
                 continue
             crains_tmp[idx].append(box)
-
             break
 
 if max(boxs) > max(crains):
